@@ -1,15 +1,13 @@
 const express = require('express');
 const morgan = require('morgan');
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const {PORT}=require('./configs/serverconfig');
 const rateLimit = require('express-rate-limit');
 const { default: axios } = require('axios');
 const app = express();
-
-const PORT = 3005;
-
 const limiter = rateLimit({
-	windowMs: 2 * 60 * 1000, // 15 minutes
-	max: 5, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+	windowMs: 2 * 60 * 1000, 
+	max: 5, 
 });
 app.use(morgan('combined'));
 app.use(limiter);
