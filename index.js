@@ -1,7 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const { createProxyMiddleware } = require('http-proxy-middleware');
-const {PORT}=require('./configs/serverconfig');
+// const {PORT}=require('./configs/serverconfig');
+const PORT = 3005;
 const rateLimit = require('express-rate-limit');
 const { default: axios } = require('axios');
 const app = express();
